@@ -118,7 +118,7 @@ async function remakeCodeblocks(codeblockPreElements: Array<HTMLElement>, codebl
 			return;
 		if (Array.from(codeblockCodeElement.classList).some(className => /^language-\S+/.test(className)))
 			while(!codeblockCodeElement.classList.contains("is-loaded"))
-				await sleep(2);
+				await sleep(50);
 		if (skipStyled && codeblockCodeElement.querySelector("code [class*='code-styler-line']"))
 			continue;
 		if (isLanguageIgnored(codeblockParameters.language,plugin.settings.excludedLanguages) || codeblockParameters.ignore)
